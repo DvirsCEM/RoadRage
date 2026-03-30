@@ -1,0 +1,120 @@
+body {
+  margin: 0px;
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: skyblue;
+}
+
+#flexDiv {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+  width: 800px;
+  height: 900px;
+  background-color: rgb(43, 214, 123);
+  border: solid 5px rgb(30, 149, 86);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+}
+
+#roadDiv {
+  position: absolute;
+  width: 500px;
+  height: 100%;
+  background-color: gray;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+}
+
+#linesDiv {
+  position: absolute;
+  height: calc(100% + 60px);
+  animation: road-lines-scroll 0.05s linear infinite;
+}
+
+@keyframes road-lines-scroll {
+  from {
+    transform: translateY(-60px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+#leftLineDiv,
+#rightLineDiv {
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  background-image: repeating-linear-gradient(
+    white 0px 40px,
+    transparent 0px 60px
+  );
+}
+
+#leftLineDiv {
+  transform: translateX(-83px);
+}
+
+#rightLineDiv {
+  transform: translateX(83px);
+}
+
+#carImg {
+  width: 80px;
+  position: absolute;
+  transform: translateY(600px);
+  transition: transform 0.1s ease-in-out;
+}
+
+#scoreDiv {
+  font-family: "Lucida Console", monospace;
+  font-size: 40px;
+  font-weight: 900;
+  position: absolute;
+  z-index: 2;
+  transform: translateY(50px);
+}
+
+#gameOverDiv {
+  position: absolute;
+  transform: translateY(250px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  z-index: 2;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+
+  visibility: hidden;
+}
+
+#gameOverTitleDiv {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+#nameInput {
+  width: 300px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#submitButton {
+  font-size: 20px;
+}
+
+.truckImg {
+  width: 80px;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-200px);
+}
