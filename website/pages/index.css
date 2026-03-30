@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "Bungee";
+  src: url("/website/fonts/Bungee-Regular.ttf") format("truetype");
+}
+
+body {
+  margin: 0px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: skyblue;
+  font-family: Arial;
+  text-align: center;
+}
+
+#cardDiv {
+  margin: 20px;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 30px;
+  background: white;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+h1 {
+  margin: 0;
+  width: 300px;
+  font-family: "Bungee";
+  font-size: 76px;
+  line-height: 0.95;
+  color: rgb(31, 70, 102);
+  padding-bottom: 0px;
+}
+
+#subtitleDiv {
+  max-width: 480px;
+  font-size: 20px;
+  color: rgb(33, 68, 98);
+}
+
+#anchorsDiv {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+a {
+  width: 180px;
+  padding: 13px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(23, 47, 68, 0.14);
+  background: rgb(31, 70, 102);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+a:hover {
+  transform: translateY(-1px);
+  background: white;
+  background: rgb(40, 84, 120);
+  box-shadow: 0 12px 22px rgba(20, 45, 66, 0.12);
+}
