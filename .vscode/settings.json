@@ -12,8 +12,7 @@
     "README.md": true,
     "tsconfig.json": true,
     "**/*.js": true,
-    // "bin": true,
-    // "obj": true
+    ".codex": true,
   },
   "js/ts.preferences.importModuleSpecifier": "non-relative",
 }

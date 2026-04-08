@@ -32,14 +32,6 @@ function moveVehicle(v: Vehicle) {
   v.img.style.transform = `translate(${laneXs[v.lane]}px, ${v.y}px)`;
 }
 
-function moveTrucks() {
-  for (var truck of trucks) {
-    truck.y += speed;
-
-    moveVehicle(truck);
-  }
-}
-
 function isColliding() {
   for (var truck of trucks) {
     if (car.lane == truck.lane && car.y >= truck.y - 50 && car.y <= truck.y + 150) {
@@ -57,7 +49,11 @@ var intervalId = setInterval(function () {
     createTruck();
   }
 
-  moveTrucks();
+  for (var truck of trucks) {
+    truck.y += speed;
+
+    moveVehicle(truck);
+  }
 
   if (isColliding()) {
     clearInterval(intervalId);
@@ -83,7 +79,7 @@ document.onkeydown = function (event: KeyboardEvent) {
   moveVehicle(car);
 };
 
-submitButton.onclick = async function() {
+submitButton.onclick = async function () {
   await send("submitRecord", nameInput.value, score);
   location.href = "scoreboard.html";
 };

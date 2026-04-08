@@ -3,10 +3,11 @@
     "target": "es2024",
     "module": "es2022",
     "moduleResolution": "bundler",
-    "baseUrl": "website",
-    // "paths": {
-    //   "website/*": ["website/*"]
-    // },
+    "paths": {
+      "*": [
+        "./website/*"
+      ]
+    },
     "inlineSourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

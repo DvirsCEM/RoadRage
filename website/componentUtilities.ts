@@ -1,4 +1,18 @@
 /**
+ * Gets an element from the document by its id and returns it with a tag-specific type.
+ * `tagName` is used only for TypeScript inference and is not checked at runtime.
+ * @param tagName - The expected tag name of the element.
+ * @param id - The id of the element to look up.
+ * @returns The element with the given id, typed according to `tagName`.
+ */
+export function get<K extends keyof HTMLElementTagNameMap>(
+  tagName: K,
+  id: string
+): HTMLElementTagNameMap[K] {
+  return document.querySelector(`#${CSS.escape(id)}`)!;
+}
+
+/**
  * Creates an HTML element with specified properties and children.
  * @param tagName - The name of the HTML tag to create.
  * @param props - An object containing properties to set on the element. Defaults to null.
@@ -9,8 +23,8 @@ export function create<
   K extends keyof HTMLElementTagNameMap,
 >(
   tagName: K,
-  props: Partial<HTMLElementTagNameMap[K]> | null = null,
-  children: (HTMLElement | string)[] | null = null,
+  props: Partial<HTMLElementTagNameMap[K]> = {},
+  ...children: (HTMLElement | string)[]
 ): HTMLElementTagNameMap[K] {
   const element = document.createElement(tagName) as HTMLElementTagNameMap[K];
 
