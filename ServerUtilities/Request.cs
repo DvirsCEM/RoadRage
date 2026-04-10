@@ -17,7 +17,7 @@ public class Request(HttpListenerContext context, string path)
   static readonly JsonSerializerOptions JsonSerializeOptions = new()
   {
     IncludeFields = true,
-    PropertyNamingPolicy = new LowerCaseNamingPolicy(),
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
   };
   static readonly JsonSerializerOptions JsonDeserializeOptions = new()
   {
@@ -133,10 +133,4 @@ public class Request(HttpListenerContext context, string path)
 
     return true;
   }
-}
-
-class LowerCaseNamingPolicy : JsonNamingPolicy
-{
-  public override string ConvertName(string name) =>
-      name?.ToLowerInvariant() ?? throw new ArgumentNullException(nameof(name));
 }
